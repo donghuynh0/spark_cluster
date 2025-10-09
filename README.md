@@ -18,8 +18,9 @@ docker run -d \
   --webui-port 8080
 ```
 
-- Replace `<MASTER_IP>` with the IP address of the machine hosting the Spark Master (e.g., `192.168.80.143`).
-- The Master node will be accessible via **port 7077** for cluster communication and **port 8080** for the Spark Web UI.
+- Replace `<MASTER_IP>` your spark master ip
+- Communicate via 7077
+- Web: ip:8080
 
 ---
 
