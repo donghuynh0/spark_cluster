@@ -1,6 +1,8 @@
-# 🚀 Apache Spark Cluster using Docker
+# Spark Cluster using Docker
 
-> **Prerequisite:** Docker must be installed on your machine.
+**Prerequisite:**
+
+Docker must be installed on your machine.
 
 ---
 
@@ -20,7 +22,7 @@ docker run -d \
 
 - Replace `<MASTER_IP>` with your spark master ip
 - Communicate via 7077
-- Web: ip:8080
+- 🌐 Web: ip:8080
 
 ---
 
