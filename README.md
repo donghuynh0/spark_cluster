@@ -18,7 +18,7 @@ docker run -d \
   --webui-port 8080
 ```
 
-- Replace `<MASTER_IP>` your spark master ip
+- Replace `<MASTER_IP>` with your spark master ip
 - Communicate via 7077
 - Web: ip:8080
 
@@ -36,8 +36,8 @@ docker run -d \
   spark://<MASTER_IP>:7077
 ```
 
-- Replace `<WORKER_IP>` with the IP address of the machine hosting the Worker (e.g., `192.168.80.124`).
-- Replace `<MASTER_IP>` with the IP address of the Spark Master node.
-- Customize the container name by modifying `--name spark-worker-1` to a unique name (e.g., `spark-worker-2` for additional workers).
+- Replace `<WORKER_IP>` with your spark worker ip
+- Replace `<MASTER_IP>` with your spark master ip
+- Customize the container name by modifying `--name spark-worker-1`
 
 ---
