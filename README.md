@@ -31,17 +31,11 @@ docker run -d \
   --name spark-worker \
   --network hadoop-spark-network \
   -e SPARK_LOCAL_IP=<WORKER_IP> \
+  -e SPARK_MASTER=spark://<MASTER_IP>:7077 \
   donghuynh0/spark-python311-amd64:3.5.7 \
   /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker \
   spark://<MASTER_IP>:7077
 ```
-docker run -d \
-  --name spark-worker \
-  --network hadoop-spark-network \
-  -e SPARK_LOCAL_IP=<WORKER_IP> \
-  donghuynh0/spark-python311-amd64:3.5.7 \
-  /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker \
-  spark://<MASTER_IP>:7077
 
 - Replace `<WORKER_IP>` with your spark worker ip
 - Replace `<MASTER_IP>` with your spark master ip
