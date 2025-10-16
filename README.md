@@ -13,7 +13,7 @@ docker run -d \
   --name spark-master \
   --network host \
   -e SPARK_MASTER_HOST=<MASTER_IP> \
-  apache/spark:3.5.7 \
+   donghuynh0/spark-python311:3.5.7  \
   /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master \
   --host <MASTER_IP> \
   --port 7077 \
@@ -33,7 +33,7 @@ docker run -d \
   --name spark-worker \
   --network host \
   -e SPARK_LOCAL_IP=<WORKER_IP> \
-  apache/spark:3.5.7 \
+   donghuynh0/spark-python311:3.5.7  \
   /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker \
   spark://<MASTER_IP>:7077
 ```
