@@ -30,7 +30,7 @@ docker run -d \
 
 ```bash
 docker run -d \
-  --name spark-worker-1 \
+  --name spark-worker \
   --network host \
   -e SPARK_LOCAL_IP=<WORKER_IP> \
   apache/spark:3.5.7 \
