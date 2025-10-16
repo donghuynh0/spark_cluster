@@ -5,7 +5,6 @@
 Docker must be installed on your machine.
 
 ---
-```
 
 ## ⚙️ Start Spark Master
 
