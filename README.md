@@ -26,7 +26,7 @@ docker network connect hadoop-spark-network spark-worker
 ```bash
 docker run -d \
   --name spark-master \
-  --network host \
+  --network hadoop-spark-network  \
   -e SPARK_MASTER_HOST=<MASTER_IP> \
    donghuynh0/spark-python311-amd64:3.5.7  \
   /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master \
@@ -46,7 +46,7 @@ docker run -d \
 ```bash
 docker run -d \
   --name spark-worker \
-  --network host \
+  --network hadoop-spark-network  \
   -e SPARK_LOCAL_IP=<WORKER_IP> \
    donghuynh0/spark-python311-amd64:3.5.7  \
   /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker \
