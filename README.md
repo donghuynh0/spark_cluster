@@ -6,6 +6,19 @@ Docker must be installed on your machine.
 
 ---
 
+create network for hadoop and spark
+
+```bash
+docker network create hadoop-spark-network
+
+# for namenode
+docker network connect hadoop-spark-network namenode
+
+# for datanode
+docker network connect hadoop-spark-network datanode
+
+```
+
 ## ⚙️ Start Spark Master
 
 ```bash
