@@ -11,13 +11,11 @@ Docker must be installed on your machine.
 ```bash
 docker run -d \
   --name spark-master \
-  --network hadoop-spark-network  \
-  -e SPARK_MASTER_HOST=<MASTER_IP> \
-   donghuynh0/spark-python311-amd64:3.5.7  \
-  /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master \
-  --host <MASTER_IP> \
-  --port 7077 \
-  --webui-port 8080
+  --network hadoop-spark-network \
+  -p 7077:7077 \
+  -p 8080:8080 \
+  yourusername/spark-python311:3.5.7 \
+  /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
 ```
 
 - Replace `<MASTER_IP>` with your spark master ip
@@ -31,12 +29,19 @@ docker run -d \
 ```bash
 docker run -d \
   --name spark-worker \
-  --network hadoop-spark-network  \
+  --network hadoop-spark-network \
   -e SPARK_LOCAL_IP=<WORKER_IP> \
-   donghuynh0/spark-python311-amd64:3.5.7  \
+  donghuynh0/spark-python311-amd64:3.5.7 \
   /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker \
   spark://<MASTER_IP>:7077
 ```
+docker run -d \
+  --name spark-worker \
+  --network hadoop-spark-network \
+  -e SPARK_LOCAL_IP=<WORKER_IP> \
+  donghuynh0/spark-python311-amd64:3.5.7 \
+  /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker \
+  spark://<MASTER_IP>:7077
 
 - Replace `<WORKER_IP>` with your spark worker ip
 - Replace `<MASTER_IP>` with your spark master ip
