@@ -11,11 +11,13 @@ create network for hadoop and spark
 ```bash
 docker network create hadoop-spark-network
 
-# for namenode
+# for namenode or spark-master
 docker network connect hadoop-spark-network namenode
+docker network connect hadoop-spark-network spark-master
 
-# for datanode
+# for datanode or spark-master
 docker network connect hadoop-spark-network datanode
+docker network connect hadoop-spark-network spark-worker
 
 ```
 
