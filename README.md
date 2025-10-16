@@ -40,6 +40,6 @@ docker run -d \
 
 - Replace `<WORKER_IP>` with your spark worker ip
 - Replace `<MASTER_IP>` with your spark master ip
-- Customize the container name by modifying `--name spark-worker-1`
+- Customize the container name by modifying `--name spark-worker`
 
 ---
