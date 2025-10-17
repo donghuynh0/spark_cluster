@@ -12,7 +12,7 @@ config static ip
 sudo nmcli connection modify "<wifi-name>" ipv4.addresses "<actual_ip>/24"
 sudo nmcli connection modify "<wifi-name>" ipv4.gateway "192.168.80.254"
 sudo nmcli connection modify "<wifi-name>" ipv4.dns "10.200.200.1,8.8.8.8"
-sudo nmcli connection modify "<wifi-name> ipv4.method manual
+sudo nmcli connection modify "<wifi-name>" ipv4.method manual
 sudo nmcli connection down "<wifi-name>" && sudo nmcli connection up "<wifi-name>"
 ```
 
