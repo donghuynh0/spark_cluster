@@ -11,11 +11,13 @@ Docker must be installed on your machine.
 ```bash
 docker run -d \
   --name spark-master \
-  --network hadoop-spark-network \
-  -p 7077:7077 \
-  -p 8080:8080 \
-  yourusername/spark-python311:3.5.7 \
-  /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
+  --network host \
+  -e SPARK_MASTER_HOST=<MASTER_IP> \
+   donghuynh0/spark-python311-amd64:3.5.7  \
+  /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master \
+  --host <MASTER_IP> \
+  --port 7077 \
+  --webui-port 8080
 ```
 
 - Replace `<MASTER_IP>` with your spark master ip
@@ -29,10 +31,9 @@ docker run -d \
 ```bash
 docker run -d \
   --name spark-worker \
-  --network hadoop-spark-network \
+  --network host \
   -e SPARK_LOCAL_IP=<WORKER_IP> \
-  -e SPARK_MASTER=spark://<MASTER_IP>:7077 \
-  donghuynh0/spark-python311-amd64:3.5.7 \
+   donghuynh0/spark-python311-amd64:3.5.7  \
   /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker \
   spark://<MASTER_IP>:7077
 ```
@@ -40,5 +41,3 @@ docker run -d \
 - Replace `<WORKER_IP>` with your spark worker ip
 - Replace `<MASTER_IP>` with your spark master ip
 - Customize the container name by modifying `--name spark-worker`
-
----
