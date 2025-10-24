@@ -53,6 +53,7 @@ docker run -d \
 
 ## ⚙️ Start Spark Worker
 
+Create folder temporarily store data on workers 
 ```bash
 sudo mkdir -p /opt/spark/work
 sudo chmod -R 777 /opt/spark/work
@@ -61,13 +62,13 @@ sudo chmod -R 777 /opt/spark/work
 
 ```bash
 docker run -d \
-  --name spark-worker-192 \
+  --name spark-worker \
   --network host \
-  -e SPARK_LOCAL_IP=192.168.80.192 \
+  -e SPARK_LOCAL_IP=<WORKER_IP> \
   -v /opt/spark/work:/opt/spark/work \
   donghuynh0/spark-python311-amd64:3.5.7 \
   /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker \
-  spark://192.168.80.55:7077
+  spark://<MASTER_IP>:7077
 ```
 
 - Replace `<WORKER_IP>` with your spark worker ip
